@@ -2,11 +2,12 @@ package day01
 
 import org.junit.jupiter.api.Test
 
-import util.Input
+import util.DayTest
 
-class Day01Test {
-	def script = new GroovyShell().parse(new File("src/day01/Day01.groovy"))
-	def input = """
+class Day01Test extends DayTest {
+	@Override
+	String input() {
+		return """
 1000
 2000
 3000
@@ -22,14 +23,15 @@ class Day01Test {
 
 10000
 """
+	}
 
 	@Test
 	void test1() {
-		assert script.part1(new Input(input: input)) == 24000
+		assert script.part1(input) == 24000
 	}
 
 	@Test
 	void test2() {
-		assert script.part2(new Input(input: input)) == 45000
+		assert script.part2(input) == 45000
 	}
 }
