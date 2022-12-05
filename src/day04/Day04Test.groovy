@@ -7,8 +7,7 @@ import util.DayTest
 class Day04Test extends DayTest {
 	@Override
 	String input() {
-		return """
-2-4,6-8
+		return """2-4,6-8
 2-3,4-5
 5-7,7-9
 2-8,3-7

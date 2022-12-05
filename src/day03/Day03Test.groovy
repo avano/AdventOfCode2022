@@ -7,8 +7,7 @@ import util.DayTest
 class Day03Test extends DayTest {
 	@Override
 	String input() {
-		return """
-vJrwpWtwJgWrhcsFMMfFFhFp
+		return """vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
 PmmdzqPrVvPwwTWBwg
 wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn

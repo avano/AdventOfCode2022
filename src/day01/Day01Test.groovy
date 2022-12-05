@@ -7,8 +7,7 @@ import util.DayTest
 class Day01Test extends DayTest {
 	@Override
 	String input() {
-		return """
-1000
+		return """1000
 2000
 3000
 

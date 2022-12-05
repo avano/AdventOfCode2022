@@ -4,7 +4,7 @@ class Input {
 	private String input
 
 	String asString() {
-		return input.trim()
+		return input
 	}
 
 	List<String> asLines() {
