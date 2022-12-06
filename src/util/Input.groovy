@@ -11,7 +11,11 @@ class Input {
 		return asString().readLines()
 	}
 
-	List<String> asElements(String separator) {
-		return asString().split(separator)
+	List<String> asElements(String separator = '') {
+		if (separator) {
+			return asString().trim().tokenize(separator)
+		} else {
+			return asString().trim().toList()
+		}
 	}
 }
