@@ -11,6 +11,16 @@ class AOCMap<T> {
 		}
 	}
 
+	AOCMap(List<String> lines, Closure transform) {
+		for (int y = 0; y < lines.size(); y++) {
+			List<T> row = []
+			for (int x = 0; x < lines[y].size(); x++) {
+				row.add(transform.call(x, y, lines[y][x] as char) as T)
+			}
+			map.add(row)
+		}
+	}
+
 	T get(int x, int y) {
 		return map[y][x]
 	}

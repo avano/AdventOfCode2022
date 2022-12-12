@@ -8,6 +8,11 @@ class Coordinate {
 		this.y = y
 	}
 
+	Coordinate(x, y, value) {
+		this.x = x
+		this.y = y
+	}
+
 	void plus(Coordinate other) {
 		x += other.x
 		y += other.y
