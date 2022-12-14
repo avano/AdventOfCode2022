@@ -2,13 +2,10 @@ package util
 
 class AOCMap<T> {
 	List<List<T>> map = []
+	Closure constructor
 
 	AOCMap(List<String> lines) {
-		lines.each { line ->
-			List<T> row = []
-			line.each { ch -> row.add(ch as T) }
-			map.add(row)
-		}
+		this(lines, { x, y, ch -> ch})
 	}
 
 	AOCMap(List<String> lines, Closure transform) {
@@ -21,8 +18,33 @@ class AOCMap<T> {
 		}
 	}
 
+	AOCMap(maxX, maxY, Closure transform) {
+		this.constructor = transform
+		for (int y = 0; y < maxY; y++) {
+			List<T> row = []
+			for (int x = 0; x < maxX; x++) {
+				row.add(transform.call(x, y) as T)
+			}
+			map.add(row)
+		}
+	}
+
 	T get(int x, int y) {
 		return map[y][x]
+	}
+
+	void resizeX() {
+		int newColumn = map[0].size()
+		height().times { y -> map[y].add(constructor.call(newColumn, y) as T) }
+	}
+
+	void resizeY() {
+		List<T> row = []
+		int newRow = height()
+		map[0].size().times { x ->
+			row.add(constructor.call(x, newRow) as T)
+		}
+		map.add(row)
 	}
 
 	void each(Closure compute) {
@@ -80,5 +102,13 @@ class AOCMap<T> {
 
 	boolean isCorner(int x, int y) {
 		return x == 0 || y == 0 || x == map[0].size() - 1 || y == map.size() - 1
+	}
+
+	int height() {
+		return map.size()
+	}
+
+	int length() {
+		return map[0].size()
 	}
 }

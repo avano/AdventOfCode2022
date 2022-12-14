@@ -8,9 +8,10 @@ class Coordinate {
 		this.y = y
 	}
 
-	Coordinate(x, y, value) {
-		this.x = x
-		this.y = y
+	Coordinate(String value) {
+		def split = value.split(',')
+		this.x = split[0] as int
+		this.y = split[1] as int
 	}
 
 	void plus(Coordinate other) {
